@@ -7,6 +7,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Tymon\JWTAuth\Contracts\JWTSubject;
+use App\Models\Transaction;
 
 class User extends Authenticatable implements JWTSubject
 {
@@ -21,6 +22,13 @@ class User extends Authenticatable implements JWTSubject
         'password'
     ];
 
+    protected $fillable = [
+        'name',
+        'email',
+        'document',
+        'password',
+        'company'
+    ];
 
     /**
      * getJWTIdentifier
@@ -40,5 +48,25 @@ class User extends Authenticatable implements JWTSubject
     public function getJWTCustomClaims()
     {
         return [];
+    }
+
+    /**
+     * Payer Transaction
+     *
+     * @return void
+     */
+    public function payer()
+    {
+        return $this->hasMany(Transaction::class, 'payer_id', 'id');
+    }
+
+    /**
+     * Payee Transaction
+     *
+     * @return void
+     */
+    public function payee()
+    {
+        return $this->hasMany(Transaction::class, 'payee_id', 'id');
     }
 }

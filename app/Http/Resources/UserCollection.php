@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * @author    Luiz Felipe <luiz.felipess@outlook.com.br>
+ * @copyright 2022 Luiz Felipe
+ * @license   Luiz Felipe Silva Copyright
+ */
+
 namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
@@ -15,14 +21,15 @@ class UserCollection extends JsonResource
     public function toArray($request)
     {
         return [
-            'id' => $this->id,
-            'name' => $this->name,
-            'email' => $this->email,
-            'document' => $this->document,
-            'password' => password_hash($this->password, PASSWORD_DEFAULT),
-            'company' => $this->company,
-            'created_at' => $this->created_at,
-            'update_at' => $this->update_at,
+            'user' => [
+                'name' => $this->name,
+                'email' => $this->email,
+                'document' => $this->document,
+                'company' => $this->company,
+                'created_at' => $this->created_at,
+                'updated_at' => $this->updated_at
+            ],
+            'message' => 'Success'
         ];
     }
 }

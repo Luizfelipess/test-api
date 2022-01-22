@@ -19,10 +19,10 @@ class CreateUserTable extends Migration
             $table->string('email', 100)->unique();
             $table->string('document', 14)->unique();
             $table->string('password');
-            $table->decimal('balance', 15, 2);
+            $table->decimal('balance', 15, 2)->default(0.0);
             $table->string('company')->default(false);
             $table->boolean('active')->default(true);
-            $table->string('token', 200);
+            $table->string('token', 200)->default('');
             $table->timestamps();
         });
     }
