@@ -20,6 +20,11 @@ docker-compose up --build
 ```bash
 docker exec <CONTAINER_NAME> composer install
 ```
+Caso não funcione o comando acima digite:
+
+```bash
+docker exec <CONTAINER_NAME> composer update
+```
 Para verificar o container do php basta digitar
 
 ```bash
