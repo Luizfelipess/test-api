@@ -51,7 +51,7 @@ APIs Funcionando atualmente
 
 Criação de usuario
 ```bash
-POST http://localhost:{NGINX_PORT}/api/create
+POST http://100.10.0.12:80/api/create
 ```
 Payload
 
