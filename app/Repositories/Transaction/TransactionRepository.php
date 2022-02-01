@@ -9,11 +9,12 @@
 namespace App\Repositories\Transaction;
 
 use App\Models\Transaction;
+use App\Interfaces\TransactionRepositoryInterface;
 
-class TransactionRepository
+class TransactionRepository implements TransactionRepositoryInterface
 {
     /**
-     * create
+     * Create Transaction
      *
      * @return void
      */
@@ -25,4 +26,5 @@ class TransactionRepository
 
         return $transaction;
     }
+
 }

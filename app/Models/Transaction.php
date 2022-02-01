@@ -10,10 +10,17 @@ class Transaction extends Model
 {
     use HasFactory;
 
+
+    protected $fillable = [
+        'value',
+        'payer_id',
+        'payee_id'
+    ];
+
     /**
      * Payer Transaction
      *
-     * @return void
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
     public function payer()
     {
@@ -23,10 +30,16 @@ class Transaction extends Model
     /**
      * Payee Transaction
      *
-     * @return void
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
     public function payee()
     {
         return $this->hasOne(User::class, 'id', 'payee_id');
     }
-}
+}return [
+            'name' => 'required',
+            'email' => 'required|email|unique:users,email',
+            'document' => 'required|min:11|max:14|unique:users,document',
+            'password' => 'required|min:3',
+            'company' => 'required'
+        ];
