@@ -1,5 +1,5 @@
 FROM phpdockerio/php73-fpm:latest
-WORKDIR /transaction/api
+WORKDIR /test-api/
 
 # Fix debconf warnings upon build
 ARG DEBIAN_FRONTEND=noninteractive

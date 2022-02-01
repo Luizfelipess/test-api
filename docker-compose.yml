@@ -11,6 +11,7 @@ services:
         working_dir: /application
         volumes:
             - '.:/application'
+            - './phpdocker/mysql/data:/var/lib/mysql'
         environment:
             - MYSQL_ROOT_PASSWORD=rootpass
             - MYSQL_DATABASE=api
