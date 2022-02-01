@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ApiController;
+use App\Http\Controllers\TransactionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,5 +17,5 @@ use App\Http\Controllers\ApiController;
 
 Route::post('/create', [ApiController::class, 'createUser']);
 Route::get('/user/{id}', [ApiController::class, 'readUser']);
-Route::put('/transaction', [ApiController::class, 'transaction']);
-Route::delete('/todo/{id}', [ApiController::class, 'deleteTodo']);
+
+Route::post('/transaction/create', [TransactionController::class, 'create']);
