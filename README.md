@@ -11,7 +11,7 @@ Estudar API REST Feita com Laravel
 ### 2. No diretório, execute o comando
 
 ```bash
-docker-compose up --build
+docker-compose up --build -d
 ```
 
 
