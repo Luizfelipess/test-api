@@ -3,11 +3,11 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Tymon\JWTAuth\Contracts\JWTSubject;
-use App\Models\Transaction;
 
 class User extends Authenticatable implements JWTSubject
 {
@@ -43,9 +43,9 @@ class User extends Authenticatable implements JWTSubject
     /**
      * getJWTCustomClaims
      *
-     * @return void
+     * @return array
      */
-    public function getJWTCustomClaims()
+    public function getJWTCustomClaims(): array
     {
         return [];
     }
@@ -53,9 +53,9 @@ class User extends Authenticatable implements JWTSubject
     /**
      * Payer Transaction
      *
-     * @return void
+     * @return HasMany
      */
-    public function payer()
+    public function payer(): HasMany
     {
         return $this->hasMany(Transaction::class, 'payer_id', 'id');
     }
@@ -63,9 +63,9 @@ class User extends Authenticatable implements JWTSubject
     /**
      * Payee Transaction
      *
-     * @return void
+     * @return HasMany
      */
-    public function payee()
+    public function payee(): HasMany
     {
         return $this->hasMany(Transaction::class, 'payee_id', 'id');
     }

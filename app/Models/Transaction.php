@@ -4,12 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\User;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Transaction extends Model
 {
     use HasFactory;
-
 
     protected $fillable = [
         'value',
@@ -20,9 +19,9 @@ class Transaction extends Model
     /**
      * Payer Transaction
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     * @return HasOne
      */
-    public function payer()
+    public function payer(): HasOne
     {
         return $this->hasOne(User::class, 'id', 'payer_id');
     }
@@ -30,16 +29,10 @@ class Transaction extends Model
     /**
      * Payee Transaction
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     * @return HasOne
      */
-    public function payee()
+    public function payee(): HasOne
     {
         return $this->hasOne(User::class, 'id', 'payee_id');
     }
-}return [
-            'name' => 'required',
-            'email' => 'required|email|unique:users,email',
-            'document' => 'required|min:11|max:14|unique:users,document',
-            'password' => 'required|min:3',
-            'company' => 'required'
-        ];
+}
