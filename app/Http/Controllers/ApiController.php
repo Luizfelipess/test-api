@@ -10,10 +10,11 @@ class ApiController extends Controller
 {
 
     /**
-     * createUser
+     * Create User
      *
-     * @param  mixed $model
-     * @return void
+     * @param UserRepositoryInterface $userRepository
+     * @param CreateUserRequest $request
+     * @return UserCollection
      */
     public function createUser(
         UserRepositoryInterface $userRepository,

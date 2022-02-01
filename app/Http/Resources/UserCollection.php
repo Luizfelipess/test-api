@@ -27,7 +27,6 @@ class UserCollection extends JsonResource
                 'document' => $this->document,
                 'company' => $this->company,
                 'created_at' => $this->created_at,
-                'updated_at' => $this->updated_at
             ],
             'message' => 'Success'
         ];
