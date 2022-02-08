@@ -20,4 +20,9 @@ interface TransactionRepositoryInterface
      * @return Transaction
      */
     public function create(array $data): Transaction;
+
+    /**
+     * @return mixed
+     */
+    public function findByEmail($email);
 }

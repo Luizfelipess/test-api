@@ -9,6 +9,7 @@
 namespace App\Repositories\Transaction;
 
 use App\Models\Transaction;
+use App\Models\User;
 use App\Interfaces\TransactionRepositoryInterface;
 
 class TransactionRepository implements TransactionRepositoryInterface
@@ -27,4 +28,12 @@ class TransactionRepository implements TransactionRepositoryInterface
         return $transaction;
     }
 
+    /**
+     * @param $email
+     * @return mixed
+     */
+    public function findByEmail($email)
+    {
+        return User::where('email',$email)->first();
+    }
 }
