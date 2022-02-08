@@ -23,7 +23,6 @@ class TransactionCollection extends JsonResource
     {
         return [
             'transaction' => [
-                'id' => $this->id,
                 'payee_id' => $this->getPayeeData(),
                 'payer_id' => $this->getPayerData(),
                 'value' => $this->value,
@@ -45,9 +44,8 @@ class TransactionCollection extends JsonResource
 
         if (isset($this->payee)) {
             $payee = [
-                'id' => $this->payee->id,
                 'name' => $this->payee->name,
-                'document' => $this->payee->document
+                'email' => $this->payee->email
             ];
         }
 
@@ -67,9 +65,8 @@ class TransactionCollection extends JsonResource
 
         if (isset($this->payer)) {
             $payer = [
-                'id' => $this->payer->id,
                 'name' => $this->payer->name,
-                'document' => $this->payer->document
+                'email' => $this->payer->email
             ];
         }
 
